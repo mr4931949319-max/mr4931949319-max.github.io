@@ -1,4 +1,3 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><meta name='viewport' content='width=device-width, initial-scale=1'/>
 <!doctype html>
 <html lang="bn">
 <head>
@@ -848,16 +847,20 @@ function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetId = anchor.getAttribute('href');
         
-        // Skip smooth scrolling for the login link; handled by initLoginModal
-        if (<a href="login.html">লগইন</a>) {
-            return;
+        // Skip smooth scrolling for the #login link, as it is handled by initLoginModal
+        if (targetId === '#login') {
+            return; // #login লিংকের জন্য বাকি কোড এড়িয়ে যান
         }
         
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            // নিশ্চিত করুন যে টার্গেট উপাদানটি আছে
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 }
@@ -1194,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Core Animation & UX
     initScrollReveal(); 
     initParallax();
-    initSmoothScroll();
+    initSmoothScroll(); // <-- This is fixed
     initDynamicTyping();
 
     // Interactive Components
