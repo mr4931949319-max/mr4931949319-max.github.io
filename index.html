@@ -20,15 +20,14 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   
   <style>
-/* Reset & variables (Premium Glassmorphism Dark Theme) */
 :root{
   --bg:#081025;
   --card:#0f1724;
   --glass: rgba(255,255,255,0.06);
   --glass-2: rgba(255,255,255,0.03);
   --glass-border: rgba(255,255,255,0.1);
-  --accent1: #5eead4; /* Teal Accent */
-  --accent2: #f472b6; /* Pink Accent */
+  --accent1: #5eead4;
+  --accent2: #f472b6;
   --text-color: #f8fafc;
   --muted: #94a3b8;
   --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -49,10 +48,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding-top: 80px; /* Space for fixed header */
+  padding-top: 80px;
 }
-
-/* Utility Classes */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -94,8 +91,6 @@ body {
     text-align: center;
     margin-bottom: 2rem;
 }
-
-/* Glassmorphism Card Style */
 .card {
   background: var(--glass);
   border-radius: 12px;
@@ -119,8 +114,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
-/* Button/CTA Style */
 .cta {
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   color: var(--bg);
@@ -141,8 +134,6 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 15px var(--accent1);
 }
-
-/* Header & Navigation */
 header {
   position: fixed;
   top: 0;
@@ -185,8 +176,6 @@ header {
 .nav .links a:hover {
   color: var(--accent1);
 }
-
-/* Hero Section */
 #hero {
   min-height: 90vh;
   display: flex;
@@ -231,8 +220,6 @@ header {
   color: var(--muted);
   margin-bottom: 2rem;
 }
-
-/* Services Section */
 .service-card {
   text-align: center;
   background: var(--glass-2);
@@ -250,8 +237,6 @@ header {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
-
-/* Pricing Section */
 .pricing-card {
   text-align: center;
   padding: 3rem 2rem;
@@ -300,8 +285,6 @@ header {
 .pricing-card ul li:last-child {
   border-bottom: none;
 }
-
-/* Contact Section & Form Styling */
 #contactForm label {
   display: block;
   margin-bottom: 0.5rem;
@@ -320,7 +303,7 @@ header {
   transition: border-color 0.3s ease;
 }
 
-#contactForm input:focus, #contactForm textarea:focus {
+#ontactForm input:focus, #contactForm textarea:focus {
   border-color: var(--accent2);
   outline: none;
 }
@@ -332,8 +315,6 @@ header {
     margin-bottom: 1rem;
     height: 1.2rem;
 }
-
-/* Footer */
 footer {
   text-align: center;
   padding: 2rem 0;
@@ -350,8 +331,6 @@ footer a {
     color: var(--accent1);
     text-decoration: none;
 }
-
-/* Testimonials/Reviews */
 .testimonial-card {
     padding: 1.5rem;
     text-align: center;
@@ -372,8 +351,6 @@ footer a {
     color: gold;
     margin-top: 5px;
 }
-
-/* FAQ */
 .faq-item {
     margin-bottom: 1rem;
     border-bottom: 1px solid var(--glass-2);
@@ -405,8 +382,6 @@ footer a {
 .faq-question.active i {
     transform: rotate(180deg);
 }
-
-/* Mobile Menu & Responsiveness */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -427,7 +402,7 @@ footer a {
         padding: 1rem 0;
     }
 
-    .nav .links.active {
+    .nav .links.active
         display: flex;
     }
 
@@ -457,9 +432,7 @@ footer a {
     .section-title h2 {
         font-size: 2.5rem;
     }
-}
-
-/* Reveal Animation (Scroll Reveal) */
+    }
 .reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -471,14 +444,12 @@ footer a {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Floating CTA/Back to Top */
 .floating-cta {
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 999;
-    display: none; /* Initially hidden */
+    display: none;
     transition: opacity 0.3s;
 }
 
@@ -507,10 +478,8 @@ footer a {
 }
 
 #back-to-top {
-    display: none; /* Managed by JS */
+    display: none;
 }
-
-/* --- NEW: Login Modal Styles --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -520,7 +489,7 @@ footer a {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     z-index: 2000;
-    display: none; /* Hidden by default */
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -543,13 +512,13 @@ footer a {
     transform: translateY(0);
 }
 
-/* Ensure form card style is maintained */
+
 #loginModal .card {
     padding: 2rem;
-    margin: 0; /* Override margin from .cards class */
+    margin: 0; 
 }
 
-/* Close button for modal */
+
 .modal-close {
     position: absolute;
     top: 15px;
@@ -802,10 +771,6 @@ const throttle = (func, delay) => {
         return func(...args);
     };
 };
-
-// --- Core Animation & UX Functions ---
-
-// Scroll Reveal Animation
 function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     
@@ -813,7 +778,7 @@ function initScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // observer.unobserve(entry.target); // Uncomment to run only once
+               
             }
         });
     }, { rootMargin: "0px 0px -10% 0px" });
@@ -827,7 +792,7 @@ function initScrollReveal() {
     });
 }
 
-// Parallax Effect (Simple background movement)
+
 function initParallax() {
     const hero = document.getElementById('hero');
     if (hero) {
@@ -838,12 +803,12 @@ function initParallax() {
     }
 }
 
-// Smooth Scroll (Modified to exclude #login link)
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetId = anchor.getAttribute('href');
         
-        // Skip smooth scrolling for the #login link
+        
         if (targetId === '#login') {
             return; 
         }
@@ -860,14 +825,12 @@ function initSmoothScroll() {
     });
 }
 
-// Dynamic Typing (Placeholder function)
+
 function initDynamicTyping() {
     console.log('Dynamic Typing Placeholder initialized.');
 }
 
-// --- Interactive Components Functions ---
 
-// Contact Form Validation and Submission Simulation
 function initFormValidation() {
     const form = document.getElementById('contactForm');
     const messageEl = document.getElementById('form-submission-message');
@@ -877,13 +840,13 @@ function initFormValidation() {
         e.preventDefault();
         let isValid = true;
         
-        // Clear previous errors
+        
         document.getElementById('name-error').textContent = '';
         document.getElementById('email-error').textContent = '';
         document.getElementById('message-error').textContent = '';
         messageEl.textContent = '';
 
-        // Validation logic
+        
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
@@ -914,17 +877,17 @@ function initFormValidation() {
     });
 }
 
-// Google Social Login Handler (Must be global - defined with window.)
+// Google 
 window.handleGoogleLogin = function(response) {
     const idToken = response.credential;
     console.log("Google Login Token received. Send this to your secure backend.");
     alert('Google Login Successful (Token received)!');
-    // TODO: সার্ভারে টোকেন পাঠানোর কোড এখানে লিখুন
+    
 }
 
-// Facebook SDK Initialization and Login Logic
+
 function initFacebookLogin() {
-    // 1. Initialize Facebook SDK
+    
     window.fbAsyncInit = function() {
         FB.init({
             appId      : 'YOUR_FACEBOOK_APP_ID', // <-- আপনার Facebook App ID দিন
@@ -935,7 +898,7 @@ function initFacebookLogin() {
         console.log('Facebook SDK Initialized.');
     };
     
-    // Load the SDK asynchronously
+    
     (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
@@ -944,7 +907,7 @@ function initFacebookLogin() {
          fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    // 2. Add Event Listener to the Button
+    
     const facebookBtn = document.getElementById('facebook-login-btn-front');
     if (facebookBtn) {
         facebookBtn.addEventListener('click', () => {
@@ -968,7 +931,7 @@ function initFacebookLogin() {
 }
 
 
-// Regular Form Validation for Email/Password (Login Section)
+
 function initLoginForm() {
     const form = document.getElementById('loginForm');
     if (!form) return;
@@ -1005,7 +968,7 @@ function initLoginForm() {
     });
 }
 
-// Login Modal Handler
+
 function initLoginModal() {
     const modal = document.getElementById('loginModal');
     const openBtn = document.querySelector('a[href="#login"]');
@@ -1013,14 +976,14 @@ function initLoginModal() {
     
     if (!modal || !openBtn || !closeBtn) return;
     
-    // Function to open modal
+    
     openBtn.addEventListener('click', function(e) {
         e.preventDefault();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden'; 
     });
 
-    // Function to close modal
+    
     const closeModal = () => {
         modal.classList.remove('active');
         document.body.style.overflow = '';
@@ -1042,14 +1005,14 @@ function initLoginModal() {
 }
 
 
-// FAQ Toggle
+
 function initFAQ() {
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
             const icon = question.querySelector('i');
             
-            // Close others
+            
             document.querySelectorAll('.faq-question').forEach(q => {
                 if (q !== question && q.classList.contains('active')) {
                     q.classList.remove('active');
@@ -1059,7 +1022,7 @@ function initFAQ() {
                 }
             });
 
-            // Toggle current
+            
             question.classList.toggle('active');
             if (answer.style.display === 'block') {
                 answer.style.display = 'none';
@@ -1074,7 +1037,7 @@ function initFAQ() {
     });
 }
 
-// Mobile Menu Toggle
+// 
 function initMobileMenu() {
     const toggle = document.querySelector('.menu-toggle');
     const links = document.querySelector('.nav .links');
@@ -1087,7 +1050,7 @@ function initMobileMenu() {
         toggle.classList.toggle('fa-times');
     });
     
-    // Close menu when a link is clicked
+    
     links.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             if (links.classList.contains('active')) {
@@ -1099,7 +1062,7 @@ function initMobileMenu() {
     });
 }
 
-// Back to Top Button visibility
+
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
     if (!backToTopBtn) return;
@@ -1115,13 +1078,13 @@ function initBackToTop() {
     window.addEventListener('scroll', toggleVisibility);
 }
 
-// Floating CTAs visibility
+
 function initFloatingCTAs() {
     const floatingCTA = document.querySelector('.floating-cta');
     const contactSection = document.getElementById('contact');
     if (!floatingCTA || !contactSection) return;
     
-    // Observer to check if contact section is visible
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (window.matchMedia('(min-width: 992px)').matches) {
@@ -1138,7 +1101,7 @@ function initFloatingCTAs() {
 
     observer.observe(contactSection);
     
-    // Initial and mobile scroll check
+    
     window.addEventListener('scroll', throttle(() => {
         if (window.matchMedia('(max-width: 992px)').matches || window.scrollY < 992) {
              if (window.scrollY > 500 && contactSection.getBoundingClientRect().top > window.innerHeight) {
@@ -1151,7 +1114,7 @@ function initFloatingCTAs() {
 }
 
 
-// Placeholder functions for console logs
+
 function initStatCounter() { console.log('Stat Counter Placeholder initialized.'); }
 function initPortfolioFilter() { console.log('Portfolio Filter Placeholder initialized.'); }
 function initTestimonialSlider() { console.log('Testimonial Slider Placeholder initialized.'); }
@@ -1159,15 +1122,15 @@ function initCaseStudies() { console.log('Case Studies Placeholder initialized.'
 function initGuarantee() { console.log('Guarantee Section Placeholder initialized.'); }
 
 
-// --- Main Execution Block ---
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Core Animation & UX
+    
     initScrollReveal(); 
     initParallax();
     initSmoothScroll(); 
     initDynamicTyping();
 
-    // Interactive Components
+    
     initStatCounter();
     initPortfolioFilter();
     initTestimonialSlider();
